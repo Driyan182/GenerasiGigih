@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Home Work 1</title>
+    <link rel="stylesheet" href="stylesheet.css">
+
+  </head>
+  <body>
+
+    <div class="main">
+      <div class="copy-container">
+        <h1>CREATE PLAYLIST</h1>
+      </div>
+
+
+      <div class="palylist-form">
+        <p>Title</p>
+        <!-- Tambahkan tag <input> -->
+        <input>
+        
+        <p>Description</p>
+        <!-- Tambahkan tag <input> -->
+        <input>
+        
+        
+        <br>
+        <br>
+
+        <button onClick="alert('Anda telah memilih')">Submit</button>
+        <br>
+        <br>
+   
+      </div>
+      
+        
+        <div class="playlist-track">
+          <div class="album-cover">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/61WZPQ4jyCL._SX425_.jpg">
+            <p>Track title</p>
+            <p>Artist</p>
+            <p>Album</p> 
+          </div>
+
+          <button onClick="alert('Track telah dipilih')">Select</button>
+
+        </div>
+
+        
+    </div>
+
+    <script>
+      const handleSubmit = () =>
+        let title = docuent.getElementById('titleField').value;
+        let desc = document.getElementById('descField').value;
+
+        if (title != "" && desc != "") {
+            alert("Your playlist has been added, with the title is "+"' "+title+" '"+" and description is "+"' "+desc+"' ");
+        
+        }else{
+            alert("Please fill the blank field");
+        }
+      ]
+          
+      
+      
+      axios.get ('https://gist.githubusercontent.com/aryapradipta9/e6492383477803b233916e01f36d5465/raw/66942c739d66d3774303f84071696aa865a07077/single-sample.json')
+      .then(response => {
+        console.log("Track title: " + response.data.name);
+        console.log("Artist : " + response.data.artist[0].name);
+        console.log("Album : " + response.data.album.name);
+        
+        document.getElementById("trackTitle").innerHTML = "Track title: " + response.data.name;
+        document.getElementById("artistName").innerHTML = "Artist: " + response.data.artist[0].name;
+        document.getElementById("albumName").innerHTML = "Album: " + response.album.name;
+
+        })
+      .catch(err => console.log(error));
+    </script>
+
+
+    <style>
+      .playlist-track {
+        height: 500px;
+        padding-top: 40px;
+        padding-left: 20px;
+        padding-bottom: 80px;
+        border: 2px solid black;
+        background-color: #f7f7f7;
+        text-align: left;
+      }
+    </style>
+
+  </body>
+</html>
