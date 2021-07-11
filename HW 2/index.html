@@ -30,33 +30,29 @@
     
     <script>
       function formSubmit() {
-        alert("Welcome to the Music Player");
+        alert("Welcome to My Music Player");
       }
 
-      axios
-        .get(
-          "https://gist.githubusercontent.com/aryapradipta9/e6492383477803b233916e01f36d5465/raw/66942c739d66d3774303f84071696aa865a07077/single-sample.json"
-        )
+      axios.get("https://gist.githubusercontent.com/aryapradipta9/e6492383477803b233916e01f36d5465/raw/66942c739d66d3774303f84071696aa865a07077/single-sample.json")
+        
         .then(function(response) {
           //if handle success
           console.log(response.data);
 
           const trackTitleDOM = document.getELementById('track-title')
-          trackTitleDOM.innerHTML = 'Track title: ${respose.data.name}'
+          trackTitleDOM.innerHTML = `Track title: ${response.data.name}`
 
+          
           const artistDOM = document.getElementById('artist-title')
-          artistDOM.innerHTML = 'Artist: $ {respose.data.artists[0].name}'
+          artistDOM.innerHTML = `Artist: ${response.data.artist[0].name}`
 
-          const albumDOM = document.getElementById('album-title')
-          albumDOM.innerHTML = 'Album: $ {respose.data.name}'
+
         })
         .catch(function (error) {
           //if handle error
           console.log(error);
         }) 
     </script>
-    
-
 
     <style>
       .track-info {
